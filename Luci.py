@@ -1,3 +1,4 @@
+### Bot Amino Naomi version 0.6 by Akihiko Ken 
 import amino
 import random
 import datetime
@@ -44,7 +45,7 @@ def on_message(data):
 	
 	content = str(content).split(" ")
 	if content[0][0] == "!" and content[0][1:].lower() == "инфа":
-		sub_client.send_message(message="Привет! Меня зовут Люси. Вот мои команды:", chatId=chatId)
+		sub_client.send_message(message="Привет! Меня зовут Наоми. Вот мои команды:", chatId=chatId)
 	if content[0][0] == "?":
 		sub_client.send_message(message=str(random.choice(lis)), chatId=chatId, replyTo=id)
 	if content[0][0] == "!" and content[0][1:].lower() == "love":
@@ -56,6 +57,17 @@ def on_message(data):
 			sub_client.send_message(chatId=chatId, file=file, fileType="audio")
 	if content[0][0] == "!" and content[0][1:].lower() == "on":
 		tim = -tim
+	if content[0][0] == "!" and content[0][1:].lower() == "хентыч":
+		if content[1] == "юри":
+			hentai("yuri")
+		if content[1] == "ножки":
+			hentai("feet")
+		if content[1] == "трап":
+			hentai("trap")
+		if content[1] == "тить":
+			hentai("tits")
+		if content[1] == "эротиш":
+			hentai("ero")
 
 	##################################Защита чата##################################################
 	global nazvan
@@ -74,7 +86,7 @@ def on_message(data):
 				sub_client.edit_chat(chatId=data.message.chatId, backgroundImage=str(fonsss))
 			except:
 				sub_client.send_message(message='Восстановление прошло успешно!', chatId=data.message.chatId)
-	
+		
 	 if ANTI_SPAM.get(userid) is None:
                ANTI_SPAM[userid] = {"warns": 1, "last_time": message_time}
          else:
@@ -93,10 +105,10 @@ def on_message(data):
                    ANTI_SPAM[userid]["last_time"] = message_time
 
 	if data.message.content != None and data.message.type in [1, 50, 58, 57, 59, 100, 101, 102, 103, 104, 105, 106, 107, 109, 110, 113, 114, 115, 116, 124, 125, 126]:
-		sub_client.send_message(message='Рейдер умер!', chatId=data.message.chatId)
+		sub_client.send_message(message='Рейдеры пошлены нахуй11!', chatId=data.message.chatId)
 		sub_client.kick(userId=data.message.author.userId, chatId=data.message.chatId, allowRejoin = True)
 	if data.message.type == 101 and nom == 0 and data.message.content == None:
-		sub_client.send_message(message='Рейдер умер!', chatId=data.message.chatId)
+		sub_client.send_message(message='Рейдеры пошлены нахуй!', chatId=data.message.chatId)
 		sub_client.kick(userId=data.message.author.userId, chatId=data.message.chatId, allowRejoin = True)
 		nom = 0
 methods = []
