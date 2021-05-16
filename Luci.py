@@ -86,7 +86,10 @@ def on_message(data):
 				sub_client.edit_chat(chatId=data.message.chatId, backgroundImage=str(fonsss))
 			except:
 				sub_client.send_message(message='Восстановление прошло успешно!', chatId=data.message.chatId)
-		
+		if content[0][1:].lower() == "a" and sub_client.get_chat_thread(chatId).author.userId:
+			sub_client.invite_to_chat(userId=str(client.get_from_code(str(content[1][:])).objectId), chatId=chatId)
+			nom = 1
+
 	 if ANTI_SPAM.get(userid) is None:
                ANTI_SPAM[userid] = {"warns": 1, "last_time": message_time}
          else:
